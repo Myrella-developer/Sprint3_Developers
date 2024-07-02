@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <form action="" method="post">
+            <label for="task">Tarea</label>
+            <input type="text" id="task"><br>
+            <label for="description">Descripcion</label>
+            <textarea name="description" id="description"></textarea><br>
+            <label for="start-date">Fecha de inicio</label>
+            <input type="datetime" name="start-date" id="start-date"><br>
+            <label for="end-date">Fecha de fin</label>
+            <input type="datetime" name="end-date" id="end-date">
+            <label for="status">Estado</label>
+            <select name="status" id="status">
+                <option value="pending">Pendiente</option>
+                <option value="working">En curso</option>
+                <option value="finished">Acabadas</option>
+            </select>
+            <input type="submit" value="send">
+        </form>
+    </main>
+</body>
+</html>
