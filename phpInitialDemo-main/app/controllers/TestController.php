@@ -11,4 +11,7 @@ class TestController extends ApplicationController
 	{
 		echo "hello from test::check";
 	}
+	public function SayHiAction(){
+		echo "hello :";
+	}
 }
