@@ -16,5 +16,5 @@ class TestController extends ApplicationController
 	{
 		$this->view->message = "hello from test::create";
 	}
-
+	
 }
