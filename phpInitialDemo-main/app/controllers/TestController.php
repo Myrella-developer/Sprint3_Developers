@@ -11,4 +11,10 @@ class TestController extends ApplicationController
 	{
 		echo "hello from test::check";
 	}
+
+	public function createAction()
+	{
+		$this->view->message = "hello from test::create";
+	}
+	
 }
