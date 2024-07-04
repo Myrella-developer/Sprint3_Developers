@@ -10,9 +10,6 @@
  * '/calendar' => 'calendar#index'
  */
 $routes = array(
-  
 	'/test' => 'test#index',
 	'/create' => 'test#create'
-	'/test' => 'test#index', 
-	'/test2' => 'test#sayhi'
 );
