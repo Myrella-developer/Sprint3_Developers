@@ -15,46 +15,34 @@
      */
     function get_all_data()
     {
-        $json = (array) json_decode(file_get_contents($this->filePath));
-        $tasks = [];
-        foreach ($json as $row) {
-            $tasks[$row->id] = $row;
-        }
-        return $tasks;
-
-        
+        $json = json_decode(file_get_contents($this->filePath), true);  
+        return $json ?: []; 
     }
     
- 
 
     /**
      * Obtener datos JSON únicos
      */
-    function get_data($id = '')
+    function get_data($id)
     {
-        if (!empty($id)) {
-            $tasks = $this->get_all_data();
-            if (isset($tasks[$id])) {
-                return $tasks[$id];
-            }
-        }
-        return (object) [];
+        $tasks = $this->get_all_data();
+        return $tasks[$id] ?? null;
     }
 
     /**
      * Insertar datos en un archivo JSON
      */
-    function create()
+    function create($data)
     {
-        $name = addslashes($_POST['name']);
-        $description = addslashes($_POST['description']);
-        $startDate = addslashes($_POST['startDate']);
-        $endDate = addslashes($_POST['endDate']);
-        $rank  = addslashes($_POST['rank']);
+        $name = $this->sanitize($data['name']);
+        $description = $this->sanitize($data['description']);
+        $startDate = $this->sanitize($data['startDate']);
+        $endDate = $this->sanitize($data['endDate']);
+        $rank  = $this->sanitize($data['rank']);
 
         $tasks = $this->get_all_data();
-        $id = array_key_last($tasks) + 1;
-        $tasks[$id] = (object) [
+        $id = $this->getNewID($tasks);
+        $tasks[$id] = [
             "id" => $id,
             "name" => $name,
             "description" => $description,
@@ -62,75 +50,78 @@
             "endDate" => $endDate,
             "rank" => $rank
         ];
-        $json = json_encode(array_values($tasks), JSON_PRETTY_PRINT);
-        $insert = file_put_contents($this->filePath, $json);
-        if ($insert) {
-            $resp['status'] = 'success';
-        } else {
-            $resp['failed'] = 'failed';
-        }
-        return $resp;
+        return $this->saveTasks($tasks);
     }
     /**
      * Actualizar datos del archivo JSON
      */
-    function update_json_data()
+    function update_json_data($id, $data)
     {
-        $id = $_POST['id'];
-        $name = addslashes($_POST['name']);
-        $description = addslashes($_POST['description']);
-        $startDate = addslashes($_POST['startDate']);
-        $endDate = addslashes($_POST['endDate']);
-        $rank  = addslashes($_POST['rank']);
+        $name = $this->sanitize($data['name']);
+        $description = $this->sanitize($data['description']);
+        $startDate = $this->sanitize($data['startDate']);
+        $endDate = $this->sanitize($data['endDate']);
+        $rank  = $this->sanitize($data['rank']);
 
         $tasks = $this->get_all_data();
-        $tasks[$id] = (object) [
-            "id" => $id,
-            "name" => $name,
-            "description" => $description,
-            "startDate" => $startDate,
-            "endDate" => $endDate,
-            "rank" => $rank
-        ];
-        $json = json_encode(array_values($tasks), JSON_PRETTY_PRINT);
-        $update = file_put_contents($this->filePath, $json);
-        if ($update) {
-            $resp['status'] = 'success';
-        } else {
-            $resp['failed'] = 'failed';
+        if(isset($tasks[$id])) {
+            $tasks[$id] = [
+                "id" => $id,
+                "name" => $name,
+                "description" => $description,
+                "startDate" => $startDate,
+                "endDate" => $endDate,
+                "rank" => $rank
+            ];
+            return $this->saveTasks($tasks); 
         }
-        return $resp;
+        return false;
     }
 
     /**
      * Eliminar datos del archivo JSON
      */
 
-    function delete_data($id = '')
+    function delete_data($id)
     {
-        if (empty($id)) {
-            $resp['status'] = 'failed';
-            $resp['error'] = 'El ID no existe.';
-        } else {
-            $tasks = $this->get_all_data();
-            if (isset($tasks[$id])) {
-                unset($tasks[$id]);
-                $json = json_encode(array_values($tasks), JSON_PRETTY_PRINT);
-                $update = file_put_contents($this->filePath, $json);
-                if ($update) {
-                    $resp['status'] = 'success';
-                } else {
-                    $resp['failed'] = 'failed';
-                }
-            } else {
-                $resp['status'] = 'failed';
-                $resp['error'] = 'El ID de tarea no existe en el archivo JSON.';
-            }
-        }
-        return $resp;
+       $tasks = $this->get_all_data();
+       if(isset($tasks[$id])) {
+        unset($tasks[$id]);
+        return $this->saveTasks($tasks);
+       }
+       return false;
     }
 
+    /**
+     * Funcion paara Sanitizar datos
+     */
+
+     private function sanitize($data) 
+     {
+        return htmlspecialchars(strip_tags($data));
+     }
   
+     /**
+      * Funcion para guardar Task
+      */
+
+      private function saveTasks($tasks) 
+      {
+        $json = json_encode(array_values($tasks), JSON_PRETTY_PRINT);
+        return file_put_contents($this->filePath, $json) !== false;
+      }
+
+      /**
+       * Funcion para Obtener un nuevo Id
+       */
+
+       private function getNewId($tasks) {
+        if(empty($tasks)) {
+            return 1;
+        }
+        $ids = array_keys($tasks);
+        return max($ids) + 1;
+       }
 
 }
 $taskModel = new ModelTask();
