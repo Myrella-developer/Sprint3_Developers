@@ -18,3 +18,4 @@ class TestController extends ApplicationController
 	}
 	
 }
+?>
