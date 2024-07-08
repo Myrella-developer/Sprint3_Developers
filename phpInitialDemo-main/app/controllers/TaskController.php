@@ -17,12 +17,13 @@ class TaskController extends ApplicationController
         $this->render('index');
     }
 
-    public function showAction($id)
-    {
-        $task = $this->taskModel->get_data($id);
-        $this->view->task = $task;
-        $this->render('show');
-    }
+    //si es necesario lo pondremos
+//     public function showAction($id)
+//     {
+//         $task = $this->taskModel->get_data($id);
+//         $this->view->task = $task;
+//         $this->render('show');
+//     }
 
     public function createAction()
     {
