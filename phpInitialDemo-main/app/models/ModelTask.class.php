@@ -93,7 +93,7 @@
     }
 
     /**
-     * Funcion paara Sanitizar datos
+     * Funcion paara limpiar datos
      */
 
      private function sanitize($data) 
