@@ -3,24 +3,32 @@
         "id": 1,
         "name": "Task 1",
         "description": "Holaaa desde Jsooon",
-        "startDate": "2024/07/01",
-        "endDate": "2024/07/02",
+        "startDate": "2024\/07\/01",
+        "endDate": "2024\/07\/02",
         "rank": "completed"
     },
     {
         "id": 2,
         "name": "Testeo",
         "description": "Hola Soy Myrella",
-        "startDate": "2024/07/08",
-        "endDate": "2024/07/24",
+        "startDate": "2024\/07\/08",
+        "endDate": "2024\/07\/24",
         "rank": "pending"
     },
     {
         "id": 3,
         "name": "Esa semana lo tenemos",
         "description": "Hola Soy MyreMyre",
-        "startDate": "2024/07/08",
-        "endDate": "2024/07/24",
+        "startDate": "2024\/07\/08",
+        "endDate": "2024\/07\/24",
         "rank": "Work in progress"
+    },
+    {
+        "id": 3,
+        "name": "erwferw",
+        "description": "efvwevfwe",
+        "startDate": "",
+        "endDate": "",
+        "rank": "pending"
     }
 ]

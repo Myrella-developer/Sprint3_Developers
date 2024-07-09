@@ -36,6 +36,7 @@ class TaskController extends ApplicationController
 
     public function editAction($id)
     {
+        
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = [
                 'name' => $_POST['name'],
@@ -45,7 +46,7 @@ class TaskController extends ApplicationController
                 'rank' => $_POST['rank']
             ];
             $this->taskModel->update_json_data($id, $data);
-            $this->redirect('task/index');
+            $this->redirect('/task');
         } else {
             $task = $this->taskModel->get_data($id);
             $this->view->task = $task;

@@ -21,12 +21,16 @@
     
 
     /**
-     * Obtener datos JSON Ãºnicos
+     * Obtener datos JSON únicos
      */
-    function get_data($id)
-    {
+    function get_data($id) {
         $tasks = $this->get_all_data();
-        return $tasks[$id] ?? null;
+        foreach ($tasks as $task) {
+            if ($task['id'] == $id) {
+                return $task;
+            }
+        }
+        return null;
     }
 
     /**
@@ -93,7 +97,7 @@
     }
 
     /**
-     * Funcion paara Sanitizar datos
+     * Función para limpiar datos
      */
 
      private function sanitize($data) 
