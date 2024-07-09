@@ -41,7 +41,7 @@
         $rank  = $this->sanitize($data['rank']);
 
         $tasks = $this->get_all_data();
-        $id = $this->getNewID($tasks);
+        $id = $this->getNewId($tasks);
         $tasks[$id] = [
             "id" => $id,
             "name" => $name,
@@ -124,10 +124,6 @@
        }
 
 }
-$taskModel = new ModelTask();
 
-// Prueba obtener todos los datos
-echo "<h2>All Tasks</h2>";
-var_dump($taskModel->get_all_data());
 
 ?>

@@ -1,39 +1,38 @@
 
-    <main class="flex items-center justify-center h-screen bg-gray-100">
-        <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
-            <form action="" method="post" class="space-y-4">
-                <div>
-                    <h2 class="text-2xl text-gray-700 text-center">Create a New Task</h2>
-                </div>
-                <div>
-                    <label for="name" class="block text-sm font-medium text-gray-700">Task:</label>
-                    <input type="text" id="name" name="name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
-                </div>
-                <div>
-                    <label for="description" class="block text-sm font-medium text-gray-700">Description:</label>
-                    <textarea name="description" id="description" rows="3" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"></textarea>
-                </div>
-                <div>
-                    <label for="startDate" class="block text-sm font-medium text-gray-700">Select the start date:</label>
-                    <input type="date" name="startDate" id="startDate" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
-                </div>
-                <div>
-                    <label for="endDate" class="block text-sm font-medium text-gray-700">Select the end date:</label>
-                    <input type="date" name="endDate" id="endDate" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
-                </div>
-                <div>
-                    <label for="rank" class="block text-sm font-medium text-gray-700">Status:</label>
-                    <select name="rank" id="rank" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
-                        <option value="">Choose your option</option>
-                        <option value="pending">Pending</option>
-                        <option value="working">Work in progress</option>
-                        <option value="completed">Completed</option>
-                    </select>
-                </div>
-                <div>
-                    <input type="submit" value="Enviar" class="w-full bg-green-500 text-white rounded-md py-2 px-4 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                </div>
-            </form>
-        </div>
-    </main>
-
+ <div class="flex items-center justify-center h-screen bg-gray-100">
+    <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
+        <form action="/task/create" method="post" class="space-y-4">
+            <div>
+                <h2 class="text-2xl text-gray-700 text-center">Create a New Task</h2>
+            </div>
+            <div>
+                <label for="name" class="block text-sm font-medium text-gray-700">Task:</label>
+                <input type="text" id="name" name="name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+                <label for="description" class="block text-sm font-medium text-gray-700">Description:</label>
+                <textarea name="description" id="description" rows="3" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"></textarea>
+            </div>
+            <div>
+                <label for="startDate" class="block text-sm font-medium text-gray-700">Select the start date:</label>
+                <input type="date" name="startDate" id="startDate" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+                <label for="endDate" class="block text-sm font-medium text-gray-700">Select the end date:</label>
+                <input type="date" name="endDate" id="endDate" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+                <label for="rank" class="block text-sm font-medium text-gray-700">Status:</label>
+                <select name="rank" id="rank" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    <option value="">Choose your option</option>
+                    <option value="pending">Pending</option>
+                    <option value="working">Work in progress</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+            <div>
+                <input type="submit" value="Enviar" class="w-full bg-green-500 text-white rounded-md py-2 px-4 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+            </div>
+        </form>
+    </div>
+</div>
