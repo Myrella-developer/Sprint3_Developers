@@ -4,16 +4,16 @@ class TaskController extends ApplicationController
 {
     public $taskModel;
 
-    public function construct()
+    public function __construct()
     {
-        parent::construct();
+        parent::__construct();
         $this->taskModel = new ModelTask();
     }
 
     public function indexAction()
     {
-        $tasks = $this->taskModel->get_all_data();
-        $this->view->tasks = $tasks;
+		$tasks = $this->taskModel->get_all_data();
+		$this->view->tasks = $tasks;
         $this->render('scripts/task/index');
     }
 
@@ -60,3 +60,4 @@ class TaskController extends ApplicationController
     }
 }
 ?>
+

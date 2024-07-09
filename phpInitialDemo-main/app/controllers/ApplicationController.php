@@ -2,7 +2,7 @@
 class ApplicationController extends Controller {
     public $view;
 
-    public function construct(){
+    public function __construct(){
         $this->view = new stdClass();
     }
 
