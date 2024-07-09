@@ -1,12 +1,12 @@
 <?php
-
+require_once ROOT_PATH . '/app/models/ModelTask.class.php';
 class TaskController extends ApplicationController
 {
-    private $taskModel;
+    public $taskModel;
 
-    public function __construct()
+    public function construct()
     {
-        parent::__construct();
+        parent::construct();
         $this->taskModel = new ModelTask();
     }
 
@@ -14,16 +14,8 @@ class TaskController extends ApplicationController
     {
         $tasks = $this->taskModel->get_all_data();
         $this->view->tasks = $tasks;
-        $this->render('index');
+        $this->render('scripts/task/index');
     }
-
-    //si es necesario lo pondremos
-//     public function showAction($id)
-//     {
-//         $task = $this->taskModel->get_data($id);
-//         $this->view->task = $task;
-//         $this->render('show');
-//     }
 
     public function createAction()
     {
@@ -36,9 +28,9 @@ class TaskController extends ApplicationController
                 'rank' => $_POST['rank']
             ];
             $this->taskModel->create($data);
-            $this->redirect('task/index');
+            $this->redirect('/task');
         } else {
-            $this->render('create');
+            $this->render('scripts/task/create');
         }
     }
 
@@ -57,7 +49,7 @@ class TaskController extends ApplicationController
         } else {
             $task = $this->taskModel->get_data($id);
             $this->view->task = $task;
-            $this->render('edit');
+            $this->render('scripts/task/edit');
         }
     }
 

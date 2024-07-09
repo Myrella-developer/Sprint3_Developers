@@ -21,7 +21,7 @@
     
 
     /**
-     * Obtener datos JSON únicos
+     * Obtener datos JSON Ãºnicos
      */
     function get_data($id)
     {
@@ -41,7 +41,7 @@
         $rank  = $this->sanitize($data['rank']);
 
         $tasks = $this->get_all_data();
-        $id = $this->getNewID($tasks);
+        $id = $this->getNewId($tasks);
         $tasks[$id] = [
             "id" => $id,
             "name" => $name,
@@ -93,7 +93,7 @@
     }
 
     /**
-     * Funcion paara limpiar datos
+     * Funcion paara Sanitizar datos
      */
 
      private function sanitize($data) 
@@ -124,10 +124,6 @@
        }
 
 }
-$taskModel = new ModelTask();
 
-// Prueba obtener todos los datos
-echo "<h2>All Tasks</h2>";
-var_dump($taskModel->get_all_data());
 
 ?>
