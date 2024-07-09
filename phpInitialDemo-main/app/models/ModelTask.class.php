@@ -21,7 +21,7 @@
     
 
     /**
-     * Obtener datos JSON únicos
+     * Obtener datos JSON Ãºnicos
      */
     function get_data($id)
     {
