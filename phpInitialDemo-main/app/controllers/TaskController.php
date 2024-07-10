@@ -28,7 +28,7 @@ class TaskController extends ApplicationController
                 'rank' => $_POST['rank']
             ];
             $this->taskModel->create($data);
-            $this->redirect('/task');
+            header("Location: /task");
         } else {
             $this->render('scripts/task/create');
         }
