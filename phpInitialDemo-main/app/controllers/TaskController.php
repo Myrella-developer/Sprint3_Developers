@@ -46,7 +46,7 @@ class TaskController extends ApplicationController
                 'rank' => $_POST['rank']
             ];
             $this->taskModel->update_json_data($id, $data);
-            $this->redirect('/task');
+            $this->redirect('task/index');
         } else {
             $task = $this->taskModel->get_data($id);
             $this->view->task = $task;
