@@ -14,7 +14,7 @@ class TaskController extends ApplicationController
     {
 		$tasks = $this->taskModel->get_all_data();
 		$this->view->tasks = $tasks;
-        $this->render('scripts/task/index');
+        $this->render('scripts/task/index', ['tasks' => $tasks]);
     }
 
     public function createAction()
@@ -28,7 +28,7 @@ class TaskController extends ApplicationController
                 'rank' => $_POST['rank']
             ];
             $this->taskModel->create($data);
-            $this->redirect('/task');
+            header("Location: /task");
         } else {
             $this->render('scripts/task/create');
         }
@@ -36,6 +36,7 @@ class TaskController extends ApplicationController
 
     public function editAction($id)
     {
+        
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = [
                 'name' => $_POST['name'],

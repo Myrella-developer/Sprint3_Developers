@@ -1,1 +1,55 @@
-<!-- CREAR EDIT -->
+<?php 
+$tasks = $this->tasks;
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 py-8">
+    <section class="py-26 max-h-0 bg-white">
+        <div class="flex flex-col items-center justify-center py-8">
+            <div class="max-w-4xl mx-auto">
+                <?php if ($task): ?>
+                    <form action="edit_task.php?id=<?php echo $task['id']; ?>" method="POST" class="bg-white rounded-lg shadow-lg p-6">
+                        <div class="space-y-4">
+                            <h2 class="text-2xl text-gray-700 text-center">Edit Task</h2>
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700">Task:</label>
+                                <input type="text" id="name" name="name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3" value="<?php echo htmlspecialchars($task['name']); ?>">
+                            </div>
+                            <div>
+                                <label for="description" class="block text-sm font-medium text-gray-700">Description:</label>
+                                <textarea id="description" name="description" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3"><?php echo htmlspecialchars($task['description']); ?></textarea>
+                            </div>
+                            <div>
+                                <label for="startDate" class="block text-sm font-medium text-gray-700">Start Date:</label>
+                                <input type="date" id="startDate" name="startDate" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3" value="<?php echo htmlspecialchars($task['startDate']); ?>">
+                            </div>
+                            <div>
+                                <label for="endDate" class="block text-sm font-medium text-gray-700">End Date:</label>
+                                <input type="date" id="endDate" name="endDate" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3" value="<?php echo htmlspecialchars($task['endDate']); ?>">
+                            </div>
+                            <div>
+                                <label for="rank" class="block text-sm font-medium text-gray-700">Status:</label>
+                                <input type="text" id="rank" name="rank" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3" value="<?php echo htmlspecialchars($task['rank']); ?>">
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="bg-blue-500 text-white rounded-md py-2 px-4 inline-block hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Save Changes</button>
+                            </div>
+                        </div>
+                        <?php if (isset($_GET['success'])): ?>
+                            <p class="text-green-500 text-center mt-4">Task updated successfully!</p>
+                        <?php endif; ?>
+                    </form>
+                <?php else: ?>
+                    <p class="text-red-500 text-center">Task not found.</p>
+                <?php endif; ?>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

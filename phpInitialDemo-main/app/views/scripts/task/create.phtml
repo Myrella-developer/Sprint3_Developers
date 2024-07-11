@@ -1,7 +1,7 @@
 
  <div class="flex items-center justify-center h-screen bg-gray-100">
     <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
-        <form action="/task/create" method="post" class="space-y-4">
+        <form action="<?php echo WEB_ROOT?>/task/create" method="post" class="space-y-4">
             <div>
                 <h2 class="text-2xl text-gray-700 text-center">Create a New Task</h2>
             </div>
@@ -15,11 +15,11 @@
             </div>
             <div>
                 <label for="startDate" class="block text-sm font-medium text-gray-700">Select the start date:</label>
-                <input type="date" name="startDate" id="startDate" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                <input type="text" name="startDate" id="startDate" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
             </div>
             <div>
                 <label for="endDate" class="block text-sm font-medium text-gray-700">Select the end date:</label>
-                <input type="date" name="endDate" id="endDate" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                <input type="text" name="endDate" id="endDate" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
             </div>
             <div>
                 <label for="rank" class="block text-sm font-medium text-gray-700">Status:</label>
