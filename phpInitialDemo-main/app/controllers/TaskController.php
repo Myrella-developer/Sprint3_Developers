@@ -29,11 +29,8 @@ class TaskController extends ApplicationController
             ];
             $this->taskModel->create($data);
             header("Location: /task");
-        } else {
-            $this->render('scripts/task/create');
-        }
+        } 
     }
-
     public function editAction($id)
     {
         
