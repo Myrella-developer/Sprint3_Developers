@@ -14,7 +14,7 @@ class TaskController extends ApplicationController
     {
 		$tasks = $this->taskModel->get_all_data();
 		$this->view->tasks = $tasks;
-        $this->render('scripts/task/index', ['tasks' => $tasks]);
+       // $this->render('scripts/task/index', ['tasks' => $tasks]);
     }
 
     public function createAction()
