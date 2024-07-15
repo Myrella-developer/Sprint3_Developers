@@ -31,35 +31,58 @@ class TaskController extends ApplicationController
             header("Location: /task");
         } 
     }
+
     public function editAction()
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) 
-            {$taskToUpdate = $this->taskModel->get_data($_POST['id']);  
-            
-            
-                $_POST['name'] = $taskToUpdate['name'];
-                $_POST['description'] = $taskToUpdate['description'];
-                $_POST['startDate'] =  $taskToUpdate['startDate'];
-                $_POST['endDate'] =  $taskToUpdate['endDate'];
-                $_POST['rank'] =  $taskToUpdate['rank'];
-        
+        if ($this->getRequest()->isPost() && isset($_POST['id'])) {
+            $taskId = $this->_getParam('id');
+            $name = $this->_getParam('name');
+            $description = $this->_getParam('description');
+            $startDate = $this->_getParam('startDate');
+            $endDate = $this->_getParam('endDate');
+            $rank = $this->_getParam('rank');
 
+            if (empty($taskId)) {
+                echo "Esa tarea no existe";
+                return;
+            }
 
-                // $this->view->task = $taskToUpdate;
-                // $this->render('scripts/task/edit');   
-              
-           
-            $this->view->tasks;
-            $this->redirect('task/edit');
-         }// else {
-        //     $task = $this->taskModel->get_data($id);
-        //     $this->view->task = $task;
-        //     $this->render('scripts/task/edit');
-        // }
+            $taskEdit = $this->taskModel->get_data($taskId);
 
-       
-        
+            if (!$taskEdit) {
+                echo "Tarea no encontrada.";
+                return;
+            }
+
+            $updatedTask = [
+                'id' => $taskId,
+                'name' => $name,
+                'description' => $description,
+                'startDate' => $startDate,
+                'endDate' => $endDate,
+                'rank' => $rank
+            ];
+
+            if ($this->taskModel->update_json_data($taskId, $updatedTask)) {
+                echo "Tarea actualizada correctamente.";
+                header("Location: /task");
+
+            } else {
+                echo "Error al actualizar la tarea.";
+            }
+        } else {
+            $id = $this->_getParam('id');
+            $taskEdit = $this->taskModel->get_data($id);
+
+            if ($taskEdit) {
+                $this->view->taskEdit = $taskEdit;
+
+            } else {
+                echo "Tarea no encontrada.";
+            }
+        }
     }
+
 
     public function deleteAction($id)
     {
