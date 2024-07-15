@@ -1,50 +1,44 @@
-<?php $tasks = $this->tasks;?>
+<?php $tasks = $this->tasks?>
 
-<section class="py-26 max-h-0 bg-white">
-<div class="flex flex-col items-center justify-center bg-gray-100 py-8">
-    <div class="max-w-4xl mx-auto grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-        <?php if (!empty($tasks)): ?>
+<section class="pt-20 p-16 bg-gray-100">
+    <ul class="bg-white shadow-lg overflow-hidden sm:rounded-md max-w-sm mx-auto mt-16">
+        <li>
+            <?php if (!empty($tasks)): ?>
             <?php foreach ($tasks as $task): ?>
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <div class="space-y-4">
-                        <h2 class="text-2xl text-gray-700 text-center">TASK</h2>
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700">Task:</label>
-                            <div class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3">
-                                <?php echo htmlspecialchars($task['name']); ?> 
-                            </div>
-                        </div>
-                        <div>
-                            <label for="description" class="block text-sm font-medium text-gray-700">Description:</label>
-                            <div class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3">
-                                <?php echo htmlspecialchars($task['description']); ?>
-                            </div>
-                        </div>
-                        <div>
-                            <label for="startDate" class="block text-sm font-medium text-gray-700">Start Date:</label>
-                            <div class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3">
-                                <?php echo htmlspecialchars($task['startDate']); ?>
-                            </div>
-                        </div>
-                        <div>
-                            <label for="endDate" class="block text-sm font-medium text-gray-700">End Date:</label>
-                            <div class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3">
-                                <?php echo htmlspecialchars($task['endDate']); ?>
-                            </div>
-                        </div>
-                        <div>
-                            <label for="rank" class="block text-sm font-medium text-gray-700">Status:</label>
-                            <div class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3">
-                                <?php echo htmlspecialchars($task['rank']); ?>
-                            </div>
-                        </div>
-                        <div class="text-center">
-                            <a href="task/edit/<?php echo $task['id']; ?>" class="bg-green-500 text-white rounded-md py-2 px-4 inline-block hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Editar</a>
-                        </div>
-                    </div>
+            <?php $rankClass= '';
+                switch($task['rank']){
+                    case 'pending';
+                        $rankClass = 'text-red-500';
+                        break;
+                    case'Work in progress';
+                        $rankClass = 'text-yellow-500';
+                        break;
+                    case 'completed';
+                        $rankClass = 'text-green-500';
+                        break;
+                    default:
+                        $rankClass = 'text-gray-500';
+                }
+            ?>
+            <div class="px-4 py-5 sm:px-6 border-t border-gray-200 font-quicksand ">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg leading-6 font-medium text-gray-900">📌  <?php echo htmlspecialchars($task['name']); ?></h3>
                 </div>
+                <div class="mt-4 flex items-center justify-between">
+                    <p class="mt-1 max-w-2xl text-sm text-gray-500"><?php echo htmlspecialchars($task['description'])?></p>
+                </div>
+                <div class="mt-4 flex items-center justify-between">
+                    <p class="text-sm leading-6 text-gray-500">🟢 Start Date: <?php echo date('d-m-y', strtotime($task['startDate'])); ?></p>
+                    <p class="text-sm leading-6 text-gray-500">🔴 Last day: <?php echo date('d-m-y', strtotime($task['endDate'])); ?></p>
+                </div>
+                <div class="mt-4 flex items-center justify-between">
+                    <p class="text-sm font-medium text-gray-500">Status: <span class="<?php echo $rankClass; ?>"><?php echo htmlspecialchars($task['rank']); ?></span></p>
+                    <a href="task/edit/<?php echo $task['id']; ?>" class="font-medium text-red-600 hover:text-red-500">Edit</a>
+                </div>
+            </div>
             <?php endforeach; ?>
-        <?php endif; ?>
-    </div>
-</div>
+            <?php endif; ?>
+        </li>
+    </ul>
 </section>
+

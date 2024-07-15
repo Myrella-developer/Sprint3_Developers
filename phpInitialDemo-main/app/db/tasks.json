@@ -1,170 +1,43 @@
 [
     {
         "id": 1,
-        "name": "Task 1",
-        "description": "Holaaa desde Jsooon",
-        "startDate": "2024\/07\/01",
-        "endDate": "2024\/07\/02",
+        "name": "Tarta de Lim\u00f3n ",
+        "description": "Comprar tarta de lim\u00f3n para el cumplea\u00f1os",
+        "startDate": "2024-05-04",
+        "endDate": "2024-05-24",
         "rank": "completed"
     },
     {
         "id": 2,
-        "name": "Testeo",
-        "description": "Hola Soy Myrella",
-        "startDate": "2024\/07\/08",
-        "endDate": "2024\/07\/24",
+        "name": "Dentista",
+        "description": "Llevar Sammy a lo Dentista",
+        "startDate": "2024-07-10",
+        "endDate": "2024-12-14",
         "rank": "pending"
     },
     {
         "id": 3,
-        "name": "Esa semana lo tenemos",
-        "description": "Hola Soy MyreMyre",
-        "startDate": "2024\/07\/08",
-        "endDate": "2024\/07\/24",
+        "name": "Concierto Harry Styles",
+        "description": "Verificar si hay disponibilidad para comprar los tickets",
+        "startDate": "2024-07-15",
+        "endDate": "2024-08-23",
         "rank": "Work in progress"
     },
     {
         "id": 3,
-        "name": "erwferw",
-        "description": "efvwevfwe",
-        "startDate": "",
-        "endDate": "",
-        "rank": "pending"
+        "name": "Entrega de Proyecto ",
+        "description": "Crear un  CRUD en MVC con PHP",
+        "startDate": "2024-06-01",
+        "endDate": "2024-07-17",
+        "rank": "Work in progress"
     },
     {
         "id": 4,
-        "name": "ds",
-        "description": "",
-        "startDate": "",
-        "endDate": "",
-        "rank": ""
-    },
-    {
-        "id": 5,
-        "name": "",
-        "description": "",
-        "startDate": "",
-        "endDate": "",
-        "rank": ""
-    },
-    {
-        "id": 6,
-        "name": "1",
-        "description": "",
-        "startDate": "",
-        "endDate": "",
-        "rank": ""
-    },
-    {
-        "id": 7,
-        "name": "1",
-        "description": "",
-        "startDate": "",
-        "endDate": "",
-        "rank": ""
-    },
-    {
-        "id": 8,
-        "name": "1",
-        "description": "",
-        "startDate": "",
-        "endDate": "",
-        "rank": ""
-    },
-    {
-        "id": 9,
-        "name": "4",
-        "description": "",
-        "startDate": "",
-        "endDate": "",
-        "rank": ""
-    },
-    {
-        "id": 10,
-        "name": "10",
-        "description": "",
-        "startDate": "",
-        "endDate": "",
-        "rank": ""
-    },
-    {
-        "id": 11,
-        "name": "11",
-        "description": "",
-        "startDate": "",
-        "endDate": "",
-        "rank": ""
-    },
-    {
-        "id": 12,
-        "name": "20",
-        "description": "",
-        "startDate": "",
-        "endDate": "",
-        "rank": ""
-    },
-    {
-        "id": 13,
-        "name": "21",
-        "description": "",
-        "startDate": "",
-        "endDate": "",
-        "rank": ""
-    },
-    {
-        "id": 14,
-        "name": "22",
-        "description": "",
-        "startDate": "",
-        "endDate": "",
-        "rank": ""
-    },
-    {
-        "id": 15,
-        "name": "23",
-        "description": "",
-        "startDate": "",
-        "endDate": "",
-        "rank": ""
-    },
-    {
-        "id": 16,
-        "name": "24",
-        "description": "",
-        "startDate": "",
-        "endDate": "",
-        "rank": ""
-    },
-    {
-        "id": 17,
-        "name": "25",
-        "description": "",
-        "startDate": "",
-        "endDate": "",
-        "rank": ""
-    },
-    {
-        "id": 18,
-        "name": "25",
-        "description": "",
-        "startDate": "",
-        "endDate": "",
-        "rank": ""
-    },
-    {
-        "id": 19,
-        "name": "",
-        "description": "",
-        "startDate": "",
-        "endDate": "",
-        "rank": ""
-    },
-    {
-        "id": 20,
-        "name": "50",
-        "description": "",
-        "startDate": "",
-        "endDate": "",
-        "rank": ""
+        "name": "Visitar la Abuela",
+        "description": "El dia 15 es su cumplea\u00f1os",
+        "startDate": "2024-08-11",
+        "endDate": "2024-09-14",
+        "rank": "pending"
     }
+  
 ]

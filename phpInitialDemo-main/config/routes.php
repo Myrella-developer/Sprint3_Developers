@@ -10,9 +10,11 @@
  * '/calendar' => 'calendar#index'
  */
 $routes = array(
+    '/' => 'task#index',
     '/task' => 'task#index',
     '/task/create' => 'task#create',
     '/task/edit' => 'task#edit',         // Ruta para editar sin ID
     '/task/edit/:id' => 'task#edit',     // Ruta para editar con ID
+    '/task/delete/:id' => 'task#delete' //Ruta para borrar con ID
 );
 

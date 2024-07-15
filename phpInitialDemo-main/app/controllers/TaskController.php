@@ -14,7 +14,7 @@ class TaskController extends ApplicationController
     {
 		$tasks = $this->taskModel->get_all_data();
 		$this->view->tasks = $tasks;
-        $this->render('scripts/task/index', ['tasks' => $tasks]);
+     
     }
 
     public function createAction()
@@ -29,11 +29,8 @@ class TaskController extends ApplicationController
             ];
             $this->taskModel->create($data);
             header("Location: /task");
-        } else {
-            $this->render('scripts/task/create');
-        }
+        } 
     }
-
     public function editAction($id)
     {
         
