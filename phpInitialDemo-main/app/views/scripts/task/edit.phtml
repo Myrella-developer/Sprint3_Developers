@@ -20,26 +20,28 @@
                     <div>
                         <label for="endDate" class="block text-sm font-medium text-gray-700">End Date:</label>
                         <input type="date" id="endDate" name="endDate" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3" value="<?php echo $this->taskEdit['endDate']; ?>">
-                    
                     </div>
                     <div>
-                            <label for="rank" class="block text-sm font-medium text-gray-700">Status:</label>
+                        <label for="rank" class="block text-sm font-medium text-gray-700">Status:</label>
                         <select name="rank" id="rank" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500" required>
                             <option value="">Choose your option</option>
-                            <option value="pending">Pending</option>
-                            <option value="Work in progress">Work in progress</option>
-                            <option value="completed">Completed</option>
+                            <option value="pending" <?php echo ($this->taskEdit['rank'] == 'pending') ? 'selected' : ''; ?>>Pending</option>
+                            <option value="Work in progress" <?php echo ($this->taskEdit['rank'] == 'Work in progress') ? 'selected' : ''; ?>>Work in progress</option>
+                            <option value="completed" <?php echo ($this->taskEdit['rank'] == 'completed') ? 'selected' : ''; ?>>Completed</option>
                         </select>
-                </div>
+                    </div>
 
                     <div class="text-center">
                         <button type="submit" class="bg-blue-500 text-white rounded-md py-2 px-4 inline-block hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Save Changes</button>
-                        <form action="<?php echo WEB_ROOT; ?>/task/delete/<?php echo $this-> taskEdit['id']; ?>" method="post" onsubmit="return confirm('Do you want to delete this task?');">
-                        <button type="submit" class="bg-red-500 text-white rounded-md py-2 px-4 inline-block hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">Delete</button>
-                    </form>
                     </div>
                 </div>
             </form>
+            
+            <!-- Formulario de Eliminación -->
+            <form action="<?php echo WEB_ROOT; ?>/task/delete/<?php echo $this->taskEdit['id']; ?>" method="POST" onsubmit="return confirm('Do you want to delete this task?');">
+                <button type="submit" class="bg-red-500 text-white rounded-md py-2 px-4 inline-block hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">Delete</button>
+            </form>
+
             <?php if (empty($taskEdit)) : ?>
                 <p class="text-red-500 text-center">Task not found.</p>
             <?php endif; ?>

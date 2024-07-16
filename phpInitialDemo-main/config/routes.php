@@ -15,6 +15,6 @@ $routes = array(
     '/task/create' => 'task#create',
     '/task/edit' => 'task#edit',         // Ruta para editar sin ID
     '/task/edit/:id' => 'task#edit',     // Ruta para editar con ID
-    '/task/delete/:id' => 'task#delete' //Ruta para borrar con ID
+    '/task/delete/:id' => 'task#index' //Ruta para borrar con ID
 );
 
