@@ -63,6 +63,7 @@ class TaskController extends ApplicationController
             'rank' => $rank
         ];
 
+
         if ($this->taskModel->update_json_data($taskId, $updatedTask)) {
             echo "Tarea actualizada correctamente.";
             header("Location: /task");
