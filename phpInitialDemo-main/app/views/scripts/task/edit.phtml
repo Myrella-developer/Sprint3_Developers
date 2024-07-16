@@ -13,7 +13,7 @@ var_dump($taskEdit);
                     <h2 class="text-2xl text-gray-700 text-center">Edit Task</h2>
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-700">Task:</label>
-                        <input type="text" id="name" name="task_name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3" value="<?php echo $this->taskEdit['name']; ?>">
+                        <input type="text" id="name" name="name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3" value="<?php echo $this->taskEdit['name']; ?>">
                     </div>
                     <div>
                         <label for="description" class="block text-sm font-medium text-gray-700">Description:</label>
@@ -29,7 +29,7 @@ var_dump($taskEdit);
                     </div>
                     <div>
                         <label for="rank" class="block text-sm font-medium text-gray-700">Status:</label>
-                        <input type="text" id="rank" name="status" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3" value="<?php echo $this->taskEdit['rank']; ?>">
+                        <input type="text" id="rank" name="rank" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3" value="<?php echo $this->taskEdit['rank']; ?>">
                     </div>
                     <div class="text-center">
                         <button type="submit" class="bg-blue-500 text-white rounded-md py-2 px-4 inline-block hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Save Changes</button>

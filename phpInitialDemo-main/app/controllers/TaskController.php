@@ -55,7 +55,7 @@ class TaskController extends ApplicationController
             }
 
             $updatedTask = [
-                'id' => $taskId,
+               
                 'name' => $name,
                 'description' => $description,
                 'startDate' => $startDate,
@@ -66,6 +66,7 @@ class TaskController extends ApplicationController
             if ($this->taskModel->update_json_data($taskId, $updatedTask)) {
                 echo "Tarea actualizada correctamente.";
                 header("Location: /task");
+                exit();
 
             } else {
                 echo "Error al actualizar la tarea.";
