@@ -59,17 +59,20 @@
     /**
      * Actualizar datos del archivo JSON
      */
-    function update_json_data($id, $data)
-    {
-        $name = $this->sanitize($data['name']);
-        $description = $this->sanitize($data['description']);
-        $startDate = $this->sanitize($data['startDate']);
-        $endDate = $this->sanitize($data['endDate']);
-        $rank  = $this->sanitize($data['rank']);
+    public function update_json_data($id, $data)
+{
+    $name = $this->sanitize($data['name']);
+    $description = $this->sanitize($data['description']);
+    $startDate = $this->sanitize($data['startDate']);
+    $endDate = $this->sanitize($data['endDate']);
+    $rank = $this->sanitize($data['rank']);
 
-        $tasks = $this->get_all_data();
-        if(isset($tasks[$id])) {
-            $tasks[$id] = [
+    $tasks = $this->get_all_data();
+    $taskUpdated = false; 
+
+    foreach ($tasks as &$task) {
+        if ($task['id'] == $id) {
+            $task = [
                 "id" => $id,
                 "name" => $name,
                 "description" => $description,
@@ -77,10 +80,17 @@
                 "endDate" => $endDate,
                 "rank" => $rank
             ];
-            return $this->saveTasks($tasks); 
+            $taskUpdated = true;
+            break;
         }
-        return false;
     }
+
+    if ($taskUpdated) {
+        return $this->saveTasks($tasks); 
+    }
+
+    return false;
+}
 
     /**
      * Eliminar datos del archivo JSON
