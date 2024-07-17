@@ -84,10 +84,11 @@ class TaskController extends ApplicationController
 }
 
 
-    public function deleteAction($id)
+    public function deleteAction()
     {
+        $id = $this->_getParam('id');
         $this->taskModel->delete_data($id);
-        $this->redirect('task/index');
+        header('Location: ' . WEB_ROOT . '/');
     }
 }
 ?>

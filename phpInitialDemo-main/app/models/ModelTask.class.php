@@ -92,18 +92,18 @@
     return false;
 }
 
-    /**
+   /**
      * Eliminar datos del archivo JSON
      */
-
-    function delete_data($id)
-    {
-       $tasks = $this->get_all_data();
-       if(isset($tasks[$id])) {
-        unset($tasks[$id]);
+    public function delete_data($id) {
+        $tasks = $this->get_all_data();
+        foreach ($tasks as $key => $task) {
+            if ($task['id'] == $id) { 
+                unset($tasks[$key]);
+                break;
+            }
+        }
         return $this->saveTasks($tasks);
-       }
-       return false;
     }
 
     /**
