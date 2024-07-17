@@ -79,7 +79,6 @@ class ModelTask
         if ($taskUpdated) {
             return $this->saveTasks($tasks);
         }
-
         return false;
     }
 
