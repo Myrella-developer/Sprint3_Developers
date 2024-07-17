@@ -82,7 +82,6 @@ class TaskController extends ApplicationController
         }
     }
 
-
     public function deleteAction()
     {
         $id = $this->_getParam('id');
