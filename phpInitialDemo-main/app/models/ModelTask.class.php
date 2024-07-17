@@ -2,7 +2,6 @@
 
 class ModelTask
 {
-
     private $filePath;
 
     public function __construct()
@@ -13,18 +12,12 @@ class ModelTask
         }
     }
 
-    /**
-     * Obtener todos los datos JSON
-     */
     function get_all_data()
     {
         $json = json_decode(file_get_contents($this->filePath), true);
         return $json ?: [];
     }
 
-    /**
-     * Obtener datos JSON únicos
-     */
     function get_data($id)
     {
         $tasks = $this->get_all_data();
@@ -36,9 +29,6 @@ class ModelTask
         return null;
     }
 
-    /**
-     * Insertar datos en un archivo JSON
-     */
     function create($data)
     {
         $name = $this->sanitize($data['name']);
@@ -60,9 +50,6 @@ class ModelTask
         return $this->saveTasks($tasks);
     }
 
-    /**
-     * Actualizar datos del archivo JSON
-     */
     public function update_json_data($id, $data)
     {
         $name = $this->sanitize($data['name']);
@@ -96,9 +83,6 @@ class ModelTask
         return false;
     }
 
-    /**
-     * Eliminar datos del archivo JSON
-     */
     public function delete_data($id)
     {
         $tasks = $this->get_all_data();
@@ -111,26 +95,17 @@ class ModelTask
         return $this->saveTasks($tasks);
     }
 
-    /**
-     * Función para limpiar datos
-     */
     private function sanitize($data)
     {
         return htmlspecialchars(strip_tags($data));
     }
 
-    /**
-     * Funcion para guardar Task
-     */
     private function saveTasks($tasks)
     {
         $json = json_encode(array_values($tasks), JSON_PRETTY_PRINT);
         return file_put_contents($this->filePath, $json) !== false;
     }
 
-    /**
-     * Funcion para Obtener un nuevo Id
-     */
     private function getNewId($tasks)
     {
         if (empty($tasks)) {
