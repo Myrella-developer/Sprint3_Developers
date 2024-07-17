@@ -1,5 +1,6 @@
-# CRUD en PHP
 
+<img width="250" alt="Captura de pantalla 2024-07-17 a las 12 08 34" src="https://github.com/user-attachments/assets/dc18ca63-de87-4354-aa8a-b6caa0d1d218">
+# CRUD en PHP
 Este proyecto es una aplicación de lista de tareas (TO-DO list) desarrollada en PHP utilizando la arquitectura MVC (Modelo-Vista-Controlador). 
 La aplicación permite crear, editar y eliminar tareas, proporcionando una interfaz simple y eficiente para gestionar las tareas diarias. 
 Se ha utilizado Tailwind CSS para el diseño de la interfaz y JSON para la manipulación de datos.
