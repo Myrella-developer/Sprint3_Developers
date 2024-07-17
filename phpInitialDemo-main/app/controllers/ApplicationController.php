@@ -1,12 +1,15 @@
 <?php
-class ApplicationController extends Controller {
+class ApplicationController extends Controller
+{
     public $view;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->view = new stdClass();
     }
 
-    protected function render($viewName){
+    protected function render($viewName)
+    {
         $viewFile = __DIR__ . '/../views/' . $viewName . '.phtml';
 
         if (file_exists($viewFile)) {
@@ -16,9 +19,9 @@ class ApplicationController extends Controller {
         }
     }
 
-    protected function redirect($route){
+    protected function redirect($route)
+    {
         header("Location: /" . WEB_ROOT . "/$route");
         exit();
     }
 }
-?>
