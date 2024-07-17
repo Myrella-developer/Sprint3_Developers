@@ -3,7 +3,7 @@
 /**
  * This file is used for creating a connection to the database
  */
- 
+
 // parses the settings file
 $settings = parse_ini_file('settings.ini', true);
 
@@ -18,5 +18,3 @@ $dbh = new PDO(
   $settings['database']['user'],
   $settings['database']['password']
 );
-
-?>

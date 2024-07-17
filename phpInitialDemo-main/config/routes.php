@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * Used to define the routes in the system.
@@ -17,4 +17,3 @@ $routes = array(
     '/task/edit/:id' => 'task#edit',     // Ruta para editar con ID
     '/task/delete/:id' => 'task#delete' //Ruta para borrar con ID
 );
-
