@@ -26,8 +26,16 @@ class TaskController extends ApplicationController
                 'endDate' => $_POST['endDate'],
                 'rank' => $_POST['rank']
             ];
-            $this->taskModel->create($data);
-            header("Location: /task");
+
+            try {
+                $this->taskModel->create($data);
+                header('Location: ' . WEB_ROOT . '/');
+                exit();
+            } catch (Exception $e) {
+                $errorMessage = $e->getMessage();
+                echo "<script>alert('$errorMessage');</script>";
+            }
+            
         }
     }
 
@@ -41,6 +49,14 @@ class TaskController extends ApplicationController
             $endDate = $this->_getParam('endDate');
             $rank = $this->_getParam('rank');
 
+            // Verificar si las fechas son válidas
+            if (strtotime($endDate) < strtotime($startDate)) {
+            echo "<script>alert('La fecha de fin no puede ser menor que la fecha de inicio.');</script>";
+            echo "<script>setTimeout(function() { window.location.href = '" . WEB_ROOT . "/'; }, 3);</script>";
+            return;  // Salir de la función sin procesar más
+            }
+
+
             if (empty($taskId)) {
                 echo "Esa tarea no existe";
                 return;
@@ -52,7 +68,7 @@ class TaskController extends ApplicationController
                 echo "Tarea no encontrada.";
                 return;
             }
-
+            
             $updatedTask = [
                 'id' => $taskId,
                 'name' => $name,
@@ -65,7 +81,7 @@ class TaskController extends ApplicationController
 
             if ($this->taskModel->update_json_data($taskId, $updatedTask)) {
                 echo "Tarea actualizada correctamente.";
-                header("Location: /task");
+                header('Location: ' . WEB_ROOT . '/');
                 exit();
             } else {
                 echo "Error al actualizar la tarea.";

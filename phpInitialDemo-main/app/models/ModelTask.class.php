@@ -37,6 +37,13 @@ class ModelTask
         $endDate = $this->sanitize($data['endDate']);
         $rank  = $this->sanitize($data['rank']);
 
+        $startDateTimestamp = strtotime($startDate);
+        $endDateTimestamp = strtotime($endDate);
+
+        if($endDateTimestamp < $startDateTimestamp) {
+            throw new Exception("La fecha de finalización no puede ser inferio a la fecha de inicio.");
+        }
+
         $tasks = $this->get_all_data();
         $id = $this->getNewId($tasks);
         $tasks[$id] = [
